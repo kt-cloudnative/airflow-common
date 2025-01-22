@@ -1,0 +1,75 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster01.cz-dev.icis.co.kr:6443
+  name: api-cluster01-cz-dev-icis-co-kr:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.c02-okd4.cz-tb.paas.kt.co.kr:6443
+  name: api-c02-okd4-cz-tb-paas-kt-co-kr:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster01.cz-dev.icis.kt.co.kr:6443
+  name: api-cluster01-cz-dev-icis-kt-co-kr:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster01.cz-sit.icis.kt.co.kr:6443
+  name: api-cluster01-cz-sit-icis-kt-co-kr:6443
+contexts:
+- context:
+    cluster: api-c02-okd4-cz-tb-paas-kt-co-kr:6443
+    namespace: crmciam
+    user: admin
+  name: crmciam/api-c02-okd4-cz-tb-paas-kt-co-kr:6443/admin
+- context:
+    cluster: api-c02-okd4-cz-tb-paas-kt-co-kr:6443
+    namespace: default
+    user: admin
+  name: default/api-c02-okd4-cz-tb-paas-kt-co-kr:6443/admin
+- context:
+    cluster: api-cluster01-cz-dev-icis-co-kr:6443
+    namespace: default
+    user: admin/api-cluster01-cz-dev-icis-co-kr:6443
+  name: default/api-cluster01-cz-dev-icis-co-kr:6443/admin
+- context:
+    cluster: api-cluster01-cz-dev-icis-kt-co-kr:6443
+    namespace: default
+    user: admin/api-cluster01-cz-dev-icis-kt-co-kr:6443
+  name: default/api-cluster01-cz-dev-icis-kt-co-kr:6443/admin
+- context:
+    cluster: api-cluster01-cz-sit-icis-kt-co-kr:6443
+    namespace: default
+    user: admin/api-cluster01-cz-sit-icis-kt-co-kr:6443
+  name: default/api-cluster01-cz-sit-icis-kt-co-kr:6443/admin
+- context:
+    cluster: api-cluster01-cz-dev-icis-kt-co-kr:6443
+    namespace: airflow-system
+    user: airflow/api-cluster01-cz-dev-icis-kt-co-kr:6443
+  name: airflow-system/api-cluster01-cz-dev-icis-kt-co-kr:6443/airflow
+- context:
+    cluster: api-cluster01-cz-dev-icis-kt-co-kr:6443
+    namespace: sa-app
+    user: admin/api-cluster01-cz-dev-icis-kt-co-kr:6443
+  name: sa-app/api-cluster01-cz-dev-icis-kt-co-kr:6443/admin
+- context:
+    cluster: api-cluster01-cz-dev-icis-kt-co-kr:6443
+    namespace: airflow-system
+    user: admin/api-cluster01-cz-dev-icis-kt-co-kr:6443
+  name: airflow-system/api-cluster01-cz-dev-icis-kt-co-kr:6443/admin
+current-context: default/api-cluster01-cz-dev-icis-kt-co-kr:6443/admin
+kind: Config
+preferences: {}
+users:
+- name: admin/api-cluster01-cz-dev-icis-co-kr:6443
+  user:
+    token: sha256~qY6kxhfAhCpS4qUoXYNrylwWNA8nmzs31hFkw1id6dM
+- name: admin/api-cluster01-cz-dev-icis-kt-co-kr:6443
+  user:
+    token: sha256~JXdXmmIJKfLBa3Nq3ikFzZhBr2IbhHH0dfN4lFcf0Qc
+- name: admin/api-cluster01-cz-sit-icis-kt-co-kr:6443
+  user:
+    token: sha256~XD7mpdp9ieV1_jL2yUZx9DSgEgZ78558N3258dj1qDY
+- name: airflow/api-cluster01-cz-dev-icis-kt-co-kr:6443
+  user:
+    token: eyJhbGciOiJSUzI1NiIsImtpZCI6IktnZXFMNTYzOTY0YVhKSXZpNTdYNFlYbl9uRWt2TG11WGtjVHpKN2xuY0UifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJhaXJmbG93LXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhaXJmbG93LXRva2VuLXJjMjdyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFpcmZsb3ciLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIyNWNkNzc1Zi02M2QzLTRlNGYtYmFhZi1mMmUzOGZkYzI2MzAiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6YWlyZmxvdy1zeXN0ZW06YWlyZmxvdyJ9.CAGTjaiTSKd8W5RXF59eGlHJ0eBLhESh3N0y0WXMohCjXpq9PgjGoN0AinCyEtaY84NA7WfCQoe3awTIWBBMSgKCmdlkwdKkOo4JdGRXXoui2Q_OSmMwy3mrKfisbb3pNXd9daG8xRqvYyRBcjGBkCL76rcna9Qqqf86ZoljWExv-FH8rXAkM3BgBiHq7DDgwLcEFCAYu1REa-Vm1m2qYkkbZ6fH9LdVlPCaupFIijiVnL_yTsgxSixxdKC_0gyqgKgglU7tP3MEZHmWaRX9x2V_-nrWnl0yo8ktEy99oueENmtLObFSDo75EHZO8KRKSWWe3Ij7DoNTMPZaxyi9INhLnrWM0qZ-QBwdrfcWzq7oHGUfqvQmCF2SXmiBA9sqJzB5jhEs2IJKh3JDryFUZI57EOg-jVf1rZArlQHiAI93HH4OhSK4DJpy289CE7iXLF1g_w4N3OIxRY8j43Ag2fFOg-4Rt29mTrW6DeWZQVpIWrzhMBBZsjHYSqjvYviQJApnUECulgr6FLq2v1nPzwj6Kk8z0MJaKEoeb_W_lu_LDmsdu4HASYIiwVUpAn0T00CxFWXSUP1-21_2N_JKBhZ3f9g7d1uN4fZUHA9NEfXPflXyh3-xk-af9tJSHs_ry71TDhL5yG23Spn1wpn5MAKEiU2fzX8_Y7ACx-2iNx0
